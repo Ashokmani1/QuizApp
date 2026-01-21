@@ -8,13 +8,13 @@ A modern Android Quiz Application built with **Jetpack Compose** following **Cle
 |:-------------:|:---------------:|:---------:|
 | ![Mode Selection](screenshots/Screenshot_20260121_212521.png) | ![Quiz Input](screenshots/Screenshot_20260121_212548.png) | ![Quiz Play](screenshots/Screenshot_20260121_212601.png) |
 
-| Answer Result | Quiz Result | Teacher Dashboard |
-|:-------------:|:-----------:|:-----------------:|
-| ![Answer](screenshots/Screenshot_20260121_212610.png) | ![Result](screenshots/Screenshot_20260121_212640.png) | ![Dashboard](screenshots/Screenshot_20260121_212723.png) |
+| Answer Result |                      Quiz Result                      |                    Teacher Dashboard                     |
+|:-------------:|:-----------------------------------------------------:|:--------------------------------------------------------:|
+| ![Answer](screenshots/Screenshot_20260121_212610.png) | ![Result](screenshots/Screenshot_20260121_214516.png) | ![Dashboard](screenshots/Screenshot_20260121_214941.png) |
 
-| Quiz Analytics |
-|:--------------:|
-| ![Analytics](screenshots/Screenshot_20260121_212741.png) |
+|                      Quiz Analytics                      |
+|:--------------------------------------------------------:|
+| ![Analytics](screenshots/Screenshot_20260121_215000.png) |
 
 ## 📱 Features
 

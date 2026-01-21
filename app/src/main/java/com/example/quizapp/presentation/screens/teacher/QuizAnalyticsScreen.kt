@@ -122,7 +122,7 @@ private fun AnalyticsContent(analytics: QuizAnalytics) {
             
             Spacer(modifier = Modifier.height(12.dp))
             
-            // First row: Attempts and Questions
+
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
@@ -142,7 +142,7 @@ private fun AnalyticsContent(analytics: QuizAnalytics) {
             
             Spacer(modifier = Modifier.height(12.dp))
             
-            // Second row: Accuracy (full width)
+
             AnalyticsCard(
                 title = "Quiz Accuracy",
                 value = "${analytics.overallAccuracy.toInt()}%",
