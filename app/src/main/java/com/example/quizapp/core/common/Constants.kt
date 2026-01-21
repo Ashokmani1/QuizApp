@@ -11,5 +11,4 @@ object Constants {
     
     // Database
     const val DATABASE_NAME = "quiz_database"
-    const val DATABASE_VERSION = 1
 }

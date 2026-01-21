@@ -11,13 +11,13 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
-import androidx.compose.material.icons.filled.Analytics
 import androidx.compose.material.icons.filled.Quiz
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.Card
@@ -172,7 +172,7 @@ private fun DashboardContent(
         contentPadding = PaddingValues(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        // Summary cards
+        // Summary section
         item {
             Text(
                 text = "Overview",
@@ -182,31 +182,37 @@ private fun DashboardContent(
             
             Spacer(modifier = Modifier.height(12.dp))
             
+            // First row: Quizzes and Attempts
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 AnalyticsCard(
-                    title = "Total Quizzes",
+                    title = "Quizzes",
                     value = "${uiState.quizzes.size}",
                     modifier = Modifier.weight(1f)
                 )
                 AnalyticsCard(
-                    title = "Total Attempts",
+                    title = "Attempts",
                     value = "${uiState.totalAttempts}",
                     modifier = Modifier.weight(1f)
                 )
-                AnalyticsCard(
-                    title = "Avg Accuracy",
-                    value = "${uiState.overallAccuracy.toInt()}%",
-                    valueColor = when {
-                        uiState.overallAccuracy >= 70 -> Color(0xFF4CAF50)
-                        uiState.overallAccuracy >= 40 -> Color(0xFFFFC107)
-                        else -> MaterialTheme.colorScheme.error
-                    },
-                    modifier = Modifier.weight(1f)
-                )
             }
+            
+            Spacer(modifier = Modifier.height(12.dp))
+            
+            // Second row: Accuracy (full width for emphasis)
+            AnalyticsCard(
+                title = "Overall Accuracy",
+                value = "${uiState.overallAccuracy.toInt()}%",
+                subtitle = if (uiState.totalAttempts > 0) "Based on ${uiState.totalAttempts} attempts" else null,
+                valueColor = when {
+                    uiState.overallAccuracy >= 70 -> Color(0xFF4CAF50)
+                    uiState.overallAccuracy >= 40 -> Color(0xFFFFC107)
+                    else -> MaterialTheme.colorScheme.error
+                },
+                modifier = Modifier.fillMaxWidth()
+            )
         }
         
         // Quiz list header

@@ -122,6 +122,7 @@ private fun AnalyticsContent(analytics: QuizAnalytics) {
             
             Spacer(modifier = Modifier.height(12.dp))
             
+            // First row: Attempts and Questions
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
@@ -137,17 +138,22 @@ private fun AnalyticsContent(analytics: QuizAnalytics) {
                     value = "${analytics.quiz.totalQuestions}",
                     modifier = Modifier.weight(1f)
                 )
-                AnalyticsCard(
-                    title = "Accuracy",
-                    value = "${analytics.overallAccuracy.toInt()}%",
-                    valueColor = when {
-                        analytics.overallAccuracy >= 70 -> Color(0xFF4CAF50)
-                        analytics.overallAccuracy >= 40 -> Color(0xFFFFC107)
-                        else -> MaterialTheme.colorScheme.error
-                    },
-                    modifier = Modifier.weight(1f)
-                )
             }
+            
+            Spacer(modifier = Modifier.height(12.dp))
+            
+            // Second row: Accuracy (full width)
+            AnalyticsCard(
+                title = "Quiz Accuracy",
+                value = "${analytics.overallAccuracy.toInt()}%",
+                subtitle = "Average score across all attempts",
+                valueColor = when {
+                    analytics.overallAccuracy >= 70 -> Color(0xFF4CAF50)
+                    analytics.overallAccuracy >= 40 -> Color(0xFFFFC107)
+                    else -> MaterialTheme.colorScheme.error
+                },
+                modifier = Modifier.fillMaxWidth()
+            )
         }
         
         // Questions section header
